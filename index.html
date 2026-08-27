@@ -601,7 +601,7 @@
 
     <div id="toast">Notification</div>  
 
-    <!-- Verification Gate (Strict 20-Char & One-Time Use) -->  
+    <!-- Verification Gate (Strict 30-Char & One-Time Use) -->  
     <div id="verify-gate">  
         <div class="verify-card">  
             <h3 class="verify-title">Device Verification</h3>  
@@ -754,15 +754,16 @@
                 });  
         }  
 
-        // --- STRICT 20-CHARACTER & ONE-TIME USE VERIFICATION SYSTEM ---  
+        // --- STRICT 30-CHARACTER & ONE-TIME USE VERIFICATION SYSTEM ---  
         function verifyUserKey() {  
             const inputVal = document.getElementById('accessKeyInput').value.trim();  
             const msgDiv = document.getElementById("status-msg");  
             const usedCodes = JSON.parse(localStorage.getItem('used_madx_codes') || "[]");  
               
-            if (inputVal.length !== 20) {  
+            // Yahan length 30 set kar di gayi hai
+            if (inputVal.length !== 30) {  
                 msgDiv.style.color = "var(--neon-pink)";  
-                msgDiv.innerText = "Invalid Key!";  
+                msgDiv.innerText = "Invalid Key! (Must be 30 characters)";  
                 return;  
             }  
 
